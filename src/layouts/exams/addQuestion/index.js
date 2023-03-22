@@ -78,6 +78,13 @@ export default function AddQuestion() {
     hasError: option4HasError,
   } = useFormInput((value) => value.trim() !== "");
 
+  const {
+    value: option5,
+    inputChangeHandler: option5ChangeHandler,
+    inputBlurHandler: option5BlurHandler,
+    hasError: option5HasError,
+  } = useFormInput((value) => value.trim() !== "");
+
   const navigate = useNavigate();
 
   const [image, setImage] = useState("");
@@ -104,10 +111,12 @@ export default function AddQuestion() {
   };
 
   const formSubmitHandler = async (event) => {
+
     
     event.preventDefault();
-    const options = [option1, option2, option3, option4];
+    const options = [option1, option2, option3, option4,option5];
     let url;
+    
   
     
     if (answer==null) {
@@ -131,6 +140,7 @@ export default function AddQuestion() {
       navigate("/exams/edit/" + id);
     }
     console.log('resssssss',res)
+    
   };
 
   return (
@@ -201,7 +211,7 @@ export default function AddQuestion() {
                     <MDInput
                       required
                       type="text"
-                      label="Option 1"
+                      label="A"
                       htmlFor="option1"
                       variant="standard"
                       value={option1}
@@ -213,7 +223,7 @@ export default function AddQuestion() {
                     />
                     {option1HasError && (
                       <MDTypography variant="caption" color="error">
-                        Please enter a valid option1.
+                        Please enter a valid option A.
                       </MDTypography>
                     )}
                   </Grid>
@@ -222,7 +232,7 @@ export default function AddQuestion() {
                     <MDInput
                       required
                       type="text"
-                      label="Option 2"
+                      label="B"
                       htmlFor="option2"
                       variant="standard"
                       value={option2}
@@ -234,7 +244,7 @@ export default function AddQuestion() {
                     />
                     {option2HasError && (
                       <MDTypography variant="caption" color="error">
-                        Please enter a valid option2.
+                        Please enter a valid option B.
                       </MDTypography>
                     )}
                   </Grid>
@@ -243,7 +253,7 @@ export default function AddQuestion() {
                     <MDInput
                       required
                       type="text"
-                      label="Option 3"
+                      label="C"
                       htmlFor="option3"
                       variant="standard"
                       value={option3}
@@ -255,7 +265,7 @@ export default function AddQuestion() {
                     />
                     {option3HasError && (
                       <MDTypography variant="caption" color="error">
-                        Please enter a valid option3.
+                        Please enter a valid option C.
                       </MDTypography>
                     )}
                   </Grid>
@@ -264,7 +274,7 @@ export default function AddQuestion() {
                     <MDInput
                       required
                       type="text"
-                      label="Option 4"
+                      label="D"
                       htmlFor="option4"
                       variant="standard"
                       value={option4}
@@ -276,7 +286,28 @@ export default function AddQuestion() {
                     />
                     {option4HasError && (
                       <MDTypography variant="caption" color="error">
-                        Please enter a valid option4.
+                        Please enter a valid option D.
+                      </MDTypography>
+                    )}
+                  </Grid>
+
+                  <Grid item xs={12} md={12}>
+                    <MDInput
+                      required
+                      type="text"
+                      label="E"
+                      htmlFor="option4"
+                      variant="standard"
+                      value={option5}
+                      onChange={option5ChangeHandler}
+                      onBlur={option5BlurHandler}
+                      fullWidth
+                      error={option5HasError}
+                      success={!option5HasError}
+                    />
+                    {option5HasError && (
+                      <MDTypography variant="caption" color="error">
+                        Please enter a valid option E.
                       </MDTypography>
                     )}
                   </Grid>

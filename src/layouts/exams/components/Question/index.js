@@ -104,13 +104,13 @@ function Question({
                 textTransform="none"
                 color="info"
               >
-                <a
-                  href={`${imageUrl}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Image
-                </a>
+                <img
+                  src={`${imageUrl}`}
+                  alt="imageUrl"
+                  height={450}
+                />
+                  
+                
               </MDTypography>
             )}
           </MDBox>
@@ -126,15 +126,7 @@ function Question({
                 <Icon>delete</Icon>&nbsp;delete
               </MDButton>
             </MDBox>
-            <MDButton
-              variant="text"
-              color={darkMode ? "white" : "dark"}
-              onClick={() =>
-                navigate(`/exams/${id}/edit-question/${questionId}`)
-              }
-            >
-              <Icon>edit</Icon>&nbsp;edit
-            </MDButton>
+            
           </MDBox>
         </MDBox>
 

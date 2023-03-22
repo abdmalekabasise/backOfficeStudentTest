@@ -90,6 +90,15 @@ export default function EditQuestion() {
     hasError: option4HasError,
   } = useFormInput((value) => value.trim() !== "");
 
+
+  const {
+    value: option5,
+    setValue: option5SetValue,
+    inputChangeHandler: option5ChangeHandler,
+    inputBlurHandler: option5BlurHandler,
+    hasError: option5HasError,
+  } = useFormInput((value) => value.trim() !== "");
+
   const navigate = useNavigate();
 
   const [image, setImage] = useState("");
@@ -113,7 +122,7 @@ export default function EditQuestion() {
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
-    const options = [option1, option2, option3, option4];
+    const options = [option1, option2, option3, option4,option5];
     let url;
     if (image) {
       url = await upload();
@@ -159,6 +168,7 @@ export default function EditQuestion() {
         option2SetValue(data.question.options[1]);
         option3SetValue(data.question.options[2]);
         option4SetValue(data.question.options[3]);
+        option5SetValue(data.question.options[4]);
         const temp = data.question.options.indexOf(data.question.answer);
         setDefaultAnswer(temp);
         if (data.question.imageUrl) {
@@ -264,7 +274,7 @@ export default function EditQuestion() {
                       <MDInput
                         required
                         type="text"
-                        label="Option 1"
+                        label="A"
                         htmlFor="option1"
                         variant="standard"
                         value={option1}
@@ -276,7 +286,7 @@ export default function EditQuestion() {
                       />
                       {option1HasError && (
                         <MDTypography variant="caption" color="error">
-                          Please enter a valid option1.
+                          Please enter a valid optionA.
                         </MDTypography>
                       )}
                     </Grid>
@@ -285,7 +295,7 @@ export default function EditQuestion() {
                       <MDInput
                         required
                         type="text"
-                        label="Option 2"
+                        label="B"
                         htmlFor="option2"
                         variant="standard"
                         value={option2}
@@ -297,7 +307,7 @@ export default function EditQuestion() {
                       />
                       {option2HasError && (
                         <MDTypography variant="caption" color="error">
-                          Please enter a valid option2.
+                          Please enter a valid option B.
                         </MDTypography>
                       )}
                     </Grid>
@@ -306,7 +316,7 @@ export default function EditQuestion() {
                       <MDInput
                         required
                         type="text"
-                        label="Option 3"
+                        label="C"
                         htmlFor="option3"
                         variant="standard"
                         value={option3}
@@ -318,7 +328,7 @@ export default function EditQuestion() {
                       />
                       {option3HasError && (
                         <MDTypography variant="caption" color="error">
-                          Please enter a valid option3.
+                          Please enter a valid option C.
                         </MDTypography>
                       )}
                     </Grid>
@@ -327,7 +337,7 @@ export default function EditQuestion() {
                       <MDInput
                         required
                         type="text"
-                        label="Option 4"
+                        label="D"
                         htmlFor="option4"
                         variant="standard"
                         value={option4}
@@ -339,7 +349,28 @@ export default function EditQuestion() {
                       />
                       {option4HasError && (
                         <MDTypography variant="caption" color="error">
-                          Please enter a valid option4.
+                          Please enter a valid option D.
+                        </MDTypography>
+                      )}
+                    </Grid>
+
+                    <Grid item xs={12} md={12}>
+                      <MDInput
+                        required
+                        type="text"
+                        label="E"
+                        htmlFor="option4"
+                        variant="standard"
+                        value={option5}
+                        onChange={option5ChangeHandler}
+                        onBlur={option5BlurHandler}
+                        fullWidth
+                        error={option5HasError}
+                        success={!option5HasError}
+                      />
+                      {option5HasError && (
+                        <MDTypography variant="caption" color="error">
+                          Please enter a valid option E.
                         </MDTypography>
                       )}
                     </Grid>

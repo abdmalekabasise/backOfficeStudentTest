@@ -14,6 +14,7 @@ export default function RowRadioButtonsGroup(props) {
     setOption2(false);
     setOption3(false);
     setOption4(false);
+    setOption5(false)
     props.onChange(1);
   };
 
@@ -23,6 +24,7 @@ export default function RowRadioButtonsGroup(props) {
     setOption1(false);
     setOption3(false);
     setOption4(false);
+    setOption5(false)
     props.onChange(2);
   };
 
@@ -32,6 +34,7 @@ export default function RowRadioButtonsGroup(props) {
     setOption1(false);
     setOption2(false);
     setOption4(false);
+    setOption5(false)
     props.onChange(3);
   };
 
@@ -41,7 +44,18 @@ export default function RowRadioButtonsGroup(props) {
     setOption1(false);
     setOption2(false);
     setOption3(false);
+    setOption5(false);
     props.onChange(4);
+  };
+
+  const [option5, setOption5] = useState(false);
+  const handleOption5Change = (e) => {
+    setOption5(true)
+    setOption4(false);
+    setOption1(false);
+    setOption2(false);
+    setOption3(false);
+    props.onChange(5);
   };
 
   useEffect(() => {
@@ -50,22 +64,32 @@ export default function RowRadioButtonsGroup(props) {
       setOption2(false);
       setOption3(false);
       setOption4(false);
+      setOption5(false);
     } else if (props.answer === 1) {
       setOption2(true);
       setOption1(false);
       setOption3(false);
       setOption4(false);
+      setOption5(false);
     } else if (props.answer === 2) {
       setOption3(true);
 
       setOption1(false);
       setOption2(false);
       setOption4(false);
+      setOption5(false);
     } else if (props.answer === 3) {
       setOption4(true);
       setOption1(false);
       setOption2(false);
       setOption3(false);
+      setOption5(false);
+    }else if(props.answer === 4){
+      setOption4(false);
+      setOption1(false);
+      setOption2(false);
+      setOption3(false);
+      setOption5(true);
     }
   }, []);
 
@@ -75,7 +99,7 @@ export default function RowRadioButtonsGroup(props) {
         Correct Answer:&nbsp;&nbsp;
       </MDTypography>
       <MDTypography variant="h5" fontWeight="bold">
-        {option1 ? "1" : option2 ? "2" : option3 ? "3" : option4 ? "4" : ""}
+        {option1 ? "1" : option2 ? "2" : option3 ? "3" : option4 ? "4" : option5 ? "5" : ""}
       </MDTypography>
       &nbsp;&nbsp;
       <MDBox display="flex" alignItems="center" mb={0.5} ml={1.5}>
@@ -84,7 +108,7 @@ export default function RowRadioButtonsGroup(props) {
         </MDBox>
         <MDBox width="80%" ml={0.5}>
           <MDTypography variant="button" fontWeight="regular" color="text">
-            Option 1
+            A
           </MDTypography>
         </MDBox>
       </MDBox>
@@ -94,7 +118,7 @@ export default function RowRadioButtonsGroup(props) {
         </MDBox>
         <MDBox width="80%" ml={0.5}>
           <MDTypography variant="button" fontWeight="regular" color="text">
-            Option 2
+            B
           </MDTypography>
         </MDBox>
       </MDBox>
@@ -104,7 +128,7 @@ export default function RowRadioButtonsGroup(props) {
         </MDBox>
         <MDBox width="80%" ml={0.5}>
           <MDTypography variant="button" fontWeight="regular" color="text">
-            Option 3
+            C
           </MDTypography>
         </MDBox>
       </MDBox>
@@ -114,7 +138,18 @@ export default function RowRadioButtonsGroup(props) {
         </MDBox>
         <MDBox width="80%" ml={0.5}>
           <MDTypography variant="button" fontWeight="regular" color="text">
-            Option 4
+           D
+          </MDTypography>
+        </MDBox>
+      </MDBox>
+
+      <MDBox display="flex" alignItems="center" mb={0.5} ml={1.5}>
+        <MDBox mt={0.5}>
+          <Switch checked={option5} onChange={handleOption5Change} />
+        </MDBox>
+        <MDBox width="80%" ml={0.5}>
+          <MDTypography variant="button" fontWeight="regular" color="text">
+            E
           </MDTypography>
         </MDBox>
       </MDBox>

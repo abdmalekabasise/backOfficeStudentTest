@@ -43,14 +43,7 @@ function Questions(props) {
         <MDTypography variant="h4" fontWeight="medium">
           Results
         </MDTypography>
-        <MDButton
-          variant="primary"
-          onClick={() => navigate(`/students/${id}/reports/${examId}`)}
-        >
-          <MDTypography variant="h6" fontWeight="medium">
-            Export to PDF
-          </MDTypography>
-        </MDButton>
+       
       </MDBox>
       {props.questions ? (
         <MDBox pt={1} pb={2} px={2}>

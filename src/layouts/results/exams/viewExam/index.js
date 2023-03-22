@@ -73,10 +73,9 @@ export default function EditExam() {
                     title={studentsSlice.exam.title}
                     description={studentsSlice.exam.subject.name}
                     value={`${
-                      studentsSlice.exam.score * studentsSlice.exam.marks
+                      studentsSlice.exam.score
                     } / ${
-                      studentsSlice.exam.questions.length *
-                      studentsSlice.exam.marks
+                      studentsSlice.exam.questions.length
                     }`}
                   />
                 </Grid>

@@ -101,7 +101,7 @@ function ExamInformation(props) {
         ),
         score: (
           <MDTypography display="block" variant="h6" fontWeight="regular">
-            {exam.score * exam.marks} / {exam.questions.length * exam.marks}
+            {exam.score } / {exam.questions.length}
           </MDTypography>
         ),
         report: (

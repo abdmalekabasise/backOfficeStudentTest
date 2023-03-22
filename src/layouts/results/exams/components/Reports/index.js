@@ -19,7 +19,6 @@ import Question from "layouts/exams/components/Question";
 import { getExam } from "store/students-slice";
 import { notificationActions } from "store/notification-slice";
 
-import PDF from "react-to-pdf";
 
 export default function Reports(props) {
   const { id, examId } = useParams();
@@ -45,20 +44,7 @@ export default function Reports(props) {
   return (
     <PageLayout>
       {/* Download pdf */}
-      <PDF targetRef={ref} filename="results.pdf">
-        {({ toPdf }) => (
-          <MDBox display="flex" justifyContent="center" p={4}>
-            <MDButton
-              variant="contained"
-              color="info"
-              onClick={toPdf}
-              style={{ marginTop: "1rem" }}
-            >
-              Download
-            </MDButton>
-          </MDBox>
-        )}
-      </PDF>
+      
       {!isLoading && studentsSlice.exam ? (
         <MDBox pt={1} pb={2} px={2} ref={ref}>
           <MDTypography variant="h3" component="h2" gutterBottom>
